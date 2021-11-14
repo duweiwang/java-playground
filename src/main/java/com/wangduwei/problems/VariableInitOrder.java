@@ -1,4 +1,4 @@
-package com.wangduwei.test;
+package com.wangduwei.problems;
 
 /**
  * <p>变量初始化顺序问题
@@ -6,23 +6,23 @@ package com.wangduwei.test;
  * @author : wangduwei
  * @since : 2020/1/3  13:56
  **/
-public class Test {
+public class VariableInitOrder {
     //1.初始化变量-走构造函数-变量被初始化
-    private static Test test = new Test();
+    private static VariableInitOrder test = new VariableInitOrder();
     public static int a ;
     //这里再次初始化被置为0
     public static int b = 0;
 
-    private Test(){
+    private VariableInitOrder(){
         a++;
         b++;
     }
-    public static Test getTest(){
+    public static VariableInitOrder getTest(){
         return test;
     }
 
     public static void main(String[] args) {
-        Test test = Test.getTest();
+        VariableInitOrder test = VariableInitOrder.getTest();
         System.out.print("a = " + test.a);
         System.out.println();
         System.out.print("b = " + test.b);

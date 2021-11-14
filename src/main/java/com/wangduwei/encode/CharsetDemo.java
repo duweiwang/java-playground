@@ -2,12 +2,14 @@ package com.wangduwei.encode;
 
 import java.io.UnsupportedEncodingException;
 
+/**
+ * 字符编码
+ */
 public class CharsetDemo {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
 
         String str = "我有一只小毛驴";
-//        String str = "iamapple";
 
         byte[] utf = str.getBytes("UTF-8");
         System.out.println(utf.length);//33

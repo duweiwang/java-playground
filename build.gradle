@@ -26,4 +26,6 @@ dependencies {
     implementation 'org.ow2.asm:asm-tree:9.2'
 
     implementation 'org.openjdk.jol:jol-core:0.9'
+
+    implementation 'us.codecraft:webmagic-core:0.7.5'
 }
