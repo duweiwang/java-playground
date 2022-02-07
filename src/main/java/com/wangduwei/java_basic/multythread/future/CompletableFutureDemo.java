@@ -34,7 +34,7 @@ public class CompletableFutureDemo {
         });
 
         CompletableFuture.allOf(futureJD, futureTB, futureTm).join();
-
+        System.out.println("主线程结束");
         //------------------------
 
 //        CompletableFuture.supplyAsync(new Supplier<Object>() {
@@ -48,23 +48,27 @@ public class CompletableFutureDemo {
 
     private static double priceOfJD() {
         delayRandom();
+        System.out.println("京东价格1.0");
         return 1.0;
     }
 
     private static double priceOfTaoBao() {
         delayRandom();
+        System.out.println("淘宝价格3.0");
         return 3.0;
     }
 
     private static double priceOfTianMao() {
         delayRandom();
+        System.out.println("天猫价格2.0");
         return 2.0;
     }
 
 
     private static void delayRandom() {
-        int time = new Random().nextInt(500);
+        int time = new Random().nextInt(50);
         try {
+            System.out.println("睡眠" + time + "秒");
             TimeUnit.SECONDS.sleep(time);
         } catch (InterruptedException e) {
             e.printStackTrace();

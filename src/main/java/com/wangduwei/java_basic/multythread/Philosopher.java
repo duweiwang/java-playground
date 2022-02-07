@@ -39,8 +39,7 @@ class Philosopher extends Thread {
                     leftChopstick.unlock();
                 }
             }
-        } catch (
-                InterruptedException e) {
+        } catch (InterruptedException e) {
         }
     }
 }
