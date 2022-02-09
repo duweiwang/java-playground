@@ -12,7 +12,6 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class InterruptDemo {
 
-
     /**
      * 001:将中断异常向上抛出，外部调用者处理，告诉调用者这是一个堵塞方法
      */

@@ -28,14 +28,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * Implementation of async executor that creates a new thread for every task.
- */
 public class ThreadAsyncExecutor implements AsyncExecutor {
 
-  /**
-   * Index for thread naming.
-   */
   private final AtomicInteger idx = new AtomicInteger(0);
 
   @Override

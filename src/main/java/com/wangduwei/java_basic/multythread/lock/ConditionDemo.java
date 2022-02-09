@@ -22,6 +22,7 @@ public class ConditionDemo {
         try {
             while (count == items.length)//如果队列满了
                 writeCondition.await();//阻塞写线程
+
             items[putptr] = x;//赋值
             if (++putptr == items.length)
                 putptr = 0;//如果写索引写到队列的最后一个位置了，那么置为0
@@ -37,6 +38,7 @@ public class ConditionDemo {
         try {
             while (count == 0)//如果队列为空
                 readCondition.await();//阻塞读线程
+
             Object x = items[takeptr];//取值
             if (++takeptr == items.length)
                 takeptr = 0;//如果读索引读到队列的最后一个位置了，那么置为0

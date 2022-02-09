@@ -27,25 +27,23 @@ package com.wangduwei.java_basic.multythread.async_method_invocation;
 import java.util.concurrent.Callable;
 
 /**
- * This application demonstrates the async method invocation pattern. Key parts of the pattern are
- * <code>AsyncResult</code> which is an intermediate container for an asynchronously evaluated
- * value, <code>AsyncCallback</code> which can be provided to be executed on task completion and
- * <code>AsyncExecutor</code> that manages the execution of the async tasks.
+ * 异步方法调用模式。
+ * 关键点：
+ * 1、AsyncResult:异步执行结果的中间状态容器
+ * 2、AsyncCallback:任务执行完成后执行的逻辑
+ * 3、AsyncExecutor:管理异步任务的执行
  *
- * <p>The main method shows example flow of async invocations. The main thread starts multiple
+ * <p>main方法演示了异步调用流程. The main thread starts multiple
  * tasks with variable durations and then continues its own work. When the main thread has done it's
  * job it collects the results of the async tasks. Two of the tasks are handled with callbacks,
  * meaning the callbacks are executed immediately when the tasks complete.
  *
- * <p>Noteworthy difference of thread usage between the async results and callbacks is that the
- * async results are collected in the main thread but the callbacks are executed within the worker
- * threads. This should be noted when working with thread pools.
+ * <p>异步结果和回调之间的区别主要是，异步结果发生在主线程，而回调发生在工作线程。在使用线程池时需注意这点。
  *
- * <p>Java provides its own implementations of async method invocation pattern. FutureTask,
- * CompletableFuture and ExecutorService are the real world implementations of this pattern. But due
- * to the nature of parallel programming, the implementations are not trivial. This example does not
- * take all possible scenarios into account but rather provides a simple version that helps to
- * understand the pattern.
+ * <p>java实现了自己的异步方法调用模式 =》FutureTask,
+ * CompletableFuture 和 ExecutorService 是现实中该模式的实现。
+ *
+ * 这个例子只是为了演示和便于理解异步编程模式，并没有考虑到所有的使用场景
  *
  * @see AsyncResult
  * @see AsyncCallback
@@ -56,10 +54,6 @@ import java.util.concurrent.Callable;
  */
 public class App {
 
-
-  /**
-   * Program entry point.
-   */
   public static void main(String[] args) throws Exception {
     // construct a new executor that will run async tasks
     ThreadAsyncExecutor executor = new ThreadAsyncExecutor();
@@ -68,9 +62,10 @@ public class App {
     final AsyncResult asyncResult1 = executor.startProcess(lazyval(10, 500));
     final AsyncResult asyncResult2 = executor.startProcess(lazyval("test", 300));
     final AsyncResult asyncResult3 = executor.startProcess(lazyval(50L, 700));
+
+
     final AsyncResult asyncResult4 = executor.startProcess(lazyval(20, 400), callback("Callback result 4"));
-    final AsyncResult asyncResult5 =
-        executor.startProcess(lazyval("callback", 600), callback("Callback result 5"));
+    final AsyncResult asyncResult5 = executor.startProcess(lazyval("callback", 600), callback("Callback result 5"));
 
     // emulate processing in the current thread while async tasks are running in their own threads
     Thread.sleep(350); // Oh boy I'm working hard here
@@ -90,11 +85,7 @@ public class App {
   }
 
   /**
-   * Creates a callable that lazily evaluates to given value with artificial delay.
-   *
-   * @param value       value to evaluate
-   * @param delayMillis artificial delay in milliseconds
-   * @return new callable for lazy evaluation
+   * 返回一个Callable用延迟来模拟任务
    */
   private static <T> Callable<T> lazyval(T value, long delayMillis) {
     return () -> {

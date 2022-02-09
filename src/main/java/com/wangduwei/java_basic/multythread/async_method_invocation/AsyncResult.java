@@ -25,33 +25,17 @@ package com.wangduwei.java_basic.multythread.async_method_invocation;
 
 import java.util.concurrent.ExecutionException;
 
-/**
- * AsyncResult interface.
- *
- * @param <T> parameter returned when getValue is invoked
- */
 public interface AsyncResult<T> {
 
-  /**
-   * Status of the async task execution.
-   *
-   * @return <code>true</code> if execution is completed or failed
-   */
   boolean isCompleted();
 
   /**
-   * Gets the value of completed async task.
-   *
-   * @return evaluated value or throws ExecutionException if execution has failed
-   * @throws ExecutionException    if execution has failed, containing the root cause
-   * @throws IllegalStateException if execution is not completed
+   * 完成后的结果值
    */
   T getValue() throws ExecutionException;
 
   /**
-   * Blocks the current thread until the async task is completed.
-   *
-   * @throws InterruptedException if the execution is interrupted
+   * 堵塞当前线程直到异步任务完成
    */
   void await() throws InterruptedException;
 }
