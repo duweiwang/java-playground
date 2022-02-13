@@ -1,4 +1,4 @@
-package com.wangduwei.java_basic.multythread.master_worker;
+package com.wangduwei.java_basic.multythread.pattern.master_worker;
 
 /**
  * https://www.cnblogs.com/binarylei/p/8999712.html
