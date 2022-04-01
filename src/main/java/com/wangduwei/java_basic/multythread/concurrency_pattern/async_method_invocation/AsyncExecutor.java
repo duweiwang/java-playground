@@ -21,15 +21,26 @@
  * THE SOFTWARE.
  */
 
-package com.wangduwei.java_basic.multythread.pattern.async_method_invocation;
+package com.wangduwei.java_basic.multythread.concurrency_pattern.async_method_invocation;
 
-import java.util.Optional;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 
-
-public interface AsyncCallback<T> {
+public interface AsyncExecutor {
 
   /**
-   * 完成或失败的回调
+   * 立即返回异步结果
    */
-  void onComplete(T value, Optional<Exception> ex);
+  <T> AsyncResult<T> startProcess(Callable<T> task);
+
+  /**
+   * 开始执行并立即返回结果，执行结束后通过回调返回
+   */
+  <T> AsyncResult<T> startProcess(Callable<T> task, AsyncCallback<T> callback);
+
+  /**
+   * Ends processing of an async task. Blocks the current thread if necessary and returns the
+   * evaluated value of the completed task.
+   */
+  <T> T endProcess(AsyncResult<T> asyncResult) throws ExecutionException, InterruptedException;
 }

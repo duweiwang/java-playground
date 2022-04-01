@@ -21,21 +21,15 @@
  * THE SOFTWARE.
  */
 
-package com.wangduwei.java_basic.multythread.pattern.async_method_invocation;
+package com.wangduwei.java_basic.multythread.concurrency_pattern.async_method_invocation;
 
-import java.util.concurrent.ExecutionException;
+import java.util.Optional;
 
-public interface AsyncResult<T> {
 
-  boolean isCompleted();
-
-  /**
-   * 完成后的结果值
-   */
-  T getValue() throws ExecutionException;
+public interface AsyncCallback<T> {
 
   /**
-   * 堵塞当前线程直到异步任务完成
+   * 完成或失败的回调
    */
-  void await() throws InterruptedException;
+  void onComplete(T value, Optional<Exception> ex);
 }

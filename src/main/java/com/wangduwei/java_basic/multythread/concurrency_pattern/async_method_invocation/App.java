@@ -21,7 +21,7 @@
  * THE SOFTWARE.
  */
 
-package com.wangduwei.java_basic.multythread.pattern.async_method_invocation;
+package com.wangduwei.java_basic.multythread.concurrency_pattern.async_method_invocation;
 
 
 import java.util.concurrent.Callable;
