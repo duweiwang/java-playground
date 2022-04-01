@@ -1,4 +1,4 @@
-package com.wangduwei.java_basic.multythread.pattern.master_worker;
+package com.wangduwei.java_basic.multythread.concurrency_pattern.master_worker;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;

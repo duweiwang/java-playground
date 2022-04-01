@@ -1,4 +1,4 @@
-package com.wangduwei.java_basic.multythread.pattern.master_worker;
+package com.wangduwei.java_basic.multythread.concurrency_pattern.master_worker;
 
 public class Task {
     private int id;
