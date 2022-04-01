@@ -21,16 +21,12 @@
  * THE SOFTWARE.
  */
 
-package com.wangduwei.java_basic.multythread.pattern.balking;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.wangduwei.java_basic.multythread.concurrency_pattern.balking;
 
 import java.util.concurrent.TimeUnit;
 
 public class WashingMachine {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(WashingMachine.class);
   private final DelayProvider delayProvider;
   private WashingMachineState washingMachineState;
 
@@ -63,15 +59,15 @@ public class WashingMachine {
    */
   public void wash() {
     synchronized (this) {
-      var machineState = getWashingMachineState();
-      LOGGER.info("{}: Actual machine state: {}", Thread.currentThread().getName(), machineState);
+      WashingMachineState machineState = getWashingMachineState();
+      System.out.println(Thread.currentThread().getName()+ "{}: Actual machine state: {}" + machineState);
       if (this.washingMachineState == WashingMachineState.WASHING) {
-        LOGGER.error("ERROR: Cannot wash if the machine has been already washing!");
+        System.out.println("ERROR: Cannot wash if the machine has been already washing!");
         return;
       }
       this.washingMachineState = WashingMachineState.WASHING;
     }
-    LOGGER.info("{}: Doing the washing", Thread.currentThread().getName());
+    System.out.println(Thread.currentThread().getName() + "{}: Doing the washing");
 
     this.delayProvider.executeAfterDelay(50, TimeUnit.MILLISECONDS, this::endOfWashing);
   }
@@ -81,7 +77,7 @@ public class WashingMachine {
    */
   public synchronized void endOfWashing() {
     washingMachineState = WashingMachineState.ENABLED;
-    LOGGER.info("{}: Washing completed.", Thread.currentThread().getId());
+    System.out.println(Thread.currentThread().getId() + "{}: Washing completed.");
   }
 
 }

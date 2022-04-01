@@ -21,13 +21,12 @@
  * THE SOFTWARE.
  */
 
-package com.wangduwei.java_basic.multythread.pattern.balking;
-
-import java.util.concurrent.TimeUnit;
+package com.wangduwei.java_basic.multythread.concurrency_pattern.balking;
 
 /**
- * An interface to simulate delay while executing some work.
+ * WashingMachineState enum describes in which state machine is, it can be enabled and ready to work
+ * as well as during washing.
  */
-public interface DelayProvider {
-  void executeAfterDelay(long interval, TimeUnit timeUnit, Runnable task);
+public enum WashingMachineState {
+  ENABLED, WASHING
 }

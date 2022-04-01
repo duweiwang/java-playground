@@ -21,10 +21,7 @@
  * THE SOFTWARE.
  */
 
-package com.wangduwei.java_basic.multythread.pattern.balking;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.wangduwei.java_basic.multythread.concurrency_pattern.balking;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -49,8 +46,6 @@ import java.util.concurrent.TimeUnit;
 
 public class App {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
-
   /**
    * Entry Point.
    *
@@ -66,7 +61,7 @@ public class App {
     try {
       executorService.awaitTermination(10, TimeUnit.SECONDS);
     } catch (InterruptedException ie) {
-      LOGGER.error("ERROR: Waiting on executor service shutdown!");
+      System.out.println("ERROR: Waiting on executor service shutdown!");
     }
   }
 
