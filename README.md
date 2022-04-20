@@ -7,7 +7,7 @@
 </p>
 
 Java-Playground is a demonstrative project contains both basic API usage for beginners and design patterns for advanced developers.
-It's accumulations of my daily learning in fact.
+These are accumulations of my daily learning in fact.
 
 ## Features
 
