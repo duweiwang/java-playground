@@ -33,4 +33,6 @@ dependencies {
     implementation 'org.openjdk.jol:jol-core:0.9'
 
     implementation 'us.codecraft:webmagic-core:0.7.5'
+
+    implementation 'com.typesafe.akka:akka-actor_2.12:2.5.11'
 }
