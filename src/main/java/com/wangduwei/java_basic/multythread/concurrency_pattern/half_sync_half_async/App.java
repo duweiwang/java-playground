@@ -33,7 +33,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * AsyncTask} and {@link AsynchronousService}.
  *
  * <p><i>PROBLEM</i> <br>
- *     并发系统的任务时长有长中短。中长时间的任务应该异步执行来满足服务的质量要求
+ *     并发系统的任务时长有长、中、短。中长时间的任务应该异步执行来满足服务的质量要求
  * A concurrent system have a mixture of short duration, mid duration and long duration tasks. Mid
  * or long duration tasks should be performed asynchronously to meet quality of service
  * requirements.

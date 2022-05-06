@@ -1,4 +1,4 @@
-package com.wangduwei.java_basic.multythread.pattern.guarded_suspension;
+package com.wangduwei.java_basic.multythread.concurrency_pattern.guarded_suspension;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;

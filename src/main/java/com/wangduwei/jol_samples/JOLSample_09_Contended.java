@@ -41,6 +41,7 @@ import static java.lang.System.out;
 public class JOLSample_09_Contended {
 
     /*
+     * 特殊注解影响字段布局的例子，需要java-8
      * This is an example of special annotations that can affect the field layout.
      * (This example requires JDK 8 to run, -XX:-RestrictContended should also be used)
      *
