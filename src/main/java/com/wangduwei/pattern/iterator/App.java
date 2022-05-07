@@ -41,7 +41,7 @@ public class App {
   private static void demonstrateTreasureChestIteratorForType(ItemType itemType) {
     LOGGER.info("------------------------");
     LOGGER.info("Item Iterator for ItemType " + itemType + ": ");
-    var itemIterator = TREASURE_CHEST.iterator(itemType);
+    Iterator itemIterator = TREASURE_CHEST.iterator(itemType);
     while (itemIterator.hasNext()) {
       LOGGER.info(itemIterator.next().toString());
     }
@@ -50,15 +50,15 @@ public class App {
   private static void demonstrateBstIterator() {
     LOGGER.info("------------------------");
     LOGGER.info("BST Iterator: ");
-    var root = buildIntegerBst();
-    var bstIterator = new BstIterator<>(root);
+    TreeNode root = buildIntegerBst();
+    Iterator<TreeNode> bstIterator = new BstIterator<>(root);
     while (bstIterator.hasNext()) {
       LOGGER.info("Next node: " + bstIterator.next().getVal());
     }
   }
 
   private static TreeNode<Integer> buildIntegerBst() {
-    var root = new TreeNode<>(8);
+    TreeNode root = new TreeNode<>(8);
 
     root.insert(3);
     root.insert(10);
