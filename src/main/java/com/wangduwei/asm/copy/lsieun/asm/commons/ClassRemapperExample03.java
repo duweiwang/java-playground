@@ -11,18 +11,26 @@ import org.objectweb.asm.commons.SimpleRemapper;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 修改两个类
+ */
 public class ClassRemapperExample03 {
     public static void main(String[] args) {
         Map<String, String> mapping = new HashMap<>();
         mapping.put("sample/HelloWorld", "sample/AAA");
         mapping.put("sample/GoodChild", "sample/BBB");
+
         mapping.put("sample/HelloWorld.test()V", "a");
         mapping.put("sample/GoodChild.study()V", "b");
+
         obfuscate("sample/HelloWorld", "sample/AAA", mapping);
         obfuscate("sample/GoodChild", "sample/BBB", mapping);
     }
 
-    public static void obfuscate(String origin_name, String target_name, Map<String, String> mapping) {
+    public static void obfuscate(String origin_name,
+                                 String target_name,
+                                 Map<String, String> mapping) {
+
         String origin_filepath = getFilePath(origin_name);
         byte[] bytes1 = FileUtils.readBytes(origin_filepath);
 

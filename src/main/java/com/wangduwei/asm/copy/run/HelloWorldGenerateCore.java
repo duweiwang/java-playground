@@ -6,6 +6,13 @@ import org.objectweb.asm.*;
 
 import static org.objectweb.asm.Opcodes.*;
 
+/**
+ * 一般情况下，由.java编译生成的.class文件中不会包含NOP指令。那么，我们就自己生成一个.class文件，让它带有NOP指令
+ *
+ * 演示移除指令操作
+ *
+ * from: https://lsieun.github.io/java-asm-01/method-modify-remove-insn.html
+ */
 public class HelloWorldGenerateCore {
     public static void main(String[] args) throws Exception {
         String relative_path = "sample/HelloWorld.class";
@@ -23,8 +30,12 @@ public class HelloWorldGenerateCore {
         ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_FRAMES);
 
         // (2) 调用visitXxx()方法
-        cw.visit(V1_8, ACC_PUBLIC + ACC_SUPER, "sample/HelloWorld",
-                null, "java/lang/Object", null);
+        cw.visit(V1_8,
+                ACC_PUBLIC + ACC_SUPER,
+                "sample/HelloWorld",
+                null,
+                "java/lang/Object",
+                null);
 
         {
             MethodVisitor mv1 = cw.visitMethod(ACC_PUBLIC, "<init>", "()V", null, null);

@@ -5,14 +5,24 @@ import org.objectweb.asm.MethodVisitor;
 
 import static org.objectweb.asm.Opcodes.*;
 
+/**
+ * 演示移除字节码中的NOP指令
+ */
 public class MethodRemoveNopVisitor extends ClassVisitor {
+
     public MethodRemoveNopVisitor(int api, ClassVisitor classVisitor) {
         super(api, classVisitor);
     }
 
     @Override
-    public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
+    public MethodVisitor visitMethod(int access,
+                                     String name,
+                                     String descriptor,
+                                     String signature,
+                                     String[] exceptions) {
+
         MethodVisitor mv = super.visitMethod(access, name, descriptor, signature, exceptions);
+
         if (mv != null && !"<init>".equals(name) && !"<clinit>".equals(name)) {
             boolean isAbstractMethod = (access & ACC_ABSTRACT) != 0;
             boolean isNativeMethod = (access & ACC_NATIVE) != 0;
@@ -25,6 +35,7 @@ public class MethodRemoveNopVisitor extends ClassVisitor {
     }
 
     private static class MethodRemoveNopAdapter extends MethodVisitor {
+
         public MethodRemoveNopAdapter(int api, MethodVisitor methodVisitor) {
             super(api, methodVisitor);
         }

@@ -8,6 +8,11 @@ import org.objectweb.asm.commons.ClassRemapper;
 import org.objectweb.asm.commons.Remapper;
 import org.objectweb.asm.commons.SimpleRemapper;
 
+/**
+ * 修改类名
+ *
+ *
+ */
 public class ClassRemapperExample01 {
     public static void main(String[] args) {
         String origin_name = "sample/HelloWorld";

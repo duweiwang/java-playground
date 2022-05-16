@@ -7,18 +7,28 @@ import org.objectweb.asm.util.Printer;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 一个方法调用了哪些方法
+ */
 public class MethodFindInvokeVisitor extends ClassVisitor {
     private final String methodName;
     private final String methodDesc;
 
-    public MethodFindInvokeVisitor(int api, ClassVisitor classVisitor, String methodName, String methodDesc) {
+    public MethodFindInvokeVisitor(int api,
+                                   ClassVisitor classVisitor,
+                                   String methodName,
+                                   String methodDesc) {
         super(api, classVisitor);
         this.methodName = methodName;
         this.methodDesc = methodDesc;
     }
 
     @Override
-    public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
+    public MethodVisitor visitMethod(int access,
+                                     String name,
+                                     String descriptor,
+                                     String signature,
+                                     String[] exceptions) {
         if (methodName.equals(name) && methodDesc.equals(descriptor)) {
             return new MethodFindInvokeAdapter(api, null);
         }
@@ -33,14 +43,16 @@ public class MethodFindInvokeVisitor extends ClassVisitor {
         }
 
         @Override
-        public void visitMethodInsn(int opcode, String owner, String name, String descriptor, boolean isInterface) {
-            // 首先，处理自己的代码逻辑
+        public void visitMethodInsn(int opcode,
+                                    String owner,
+                                    String name,
+                                    String descriptor,
+                                    boolean isInterface) {
             String info = String.format("%s %s.%s%s", Printer.OPCODES[opcode], owner, name, descriptor);
             if (!list.contains(info)) {
                 list.add(info);
             }
 
-            // 其次，调用父类的方法实现
             super.visitMethodInsn(opcode, owner, name, descriptor, isInterface);
         }
 

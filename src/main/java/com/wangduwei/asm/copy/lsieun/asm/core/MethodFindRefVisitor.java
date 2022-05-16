@@ -9,6 +9,12 @@ import java.util.List;
 import static org.objectweb.asm.Opcodes.ACC_ABSTRACT;
 import static org.objectweb.asm.Opcodes.ACC_NATIVE;
 
+/**
+ * 找到方法被谁调用了
+ *
+ * sample/HelloWorld.add(II)I
+ * sample/HelloWorld.sub(II)I
+ */
 public class MethodFindRefVisitor extends ClassVisitor {
     private final String methodOwner;
     private final String methodName;

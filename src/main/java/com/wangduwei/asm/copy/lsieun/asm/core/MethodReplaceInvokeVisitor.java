@@ -6,6 +6,10 @@ import org.objectweb.asm.MethodVisitor;
 import static org.objectweb.asm.Opcodes.ACC_ABSTRACT;
 import static org.objectweb.asm.Opcodes.ACC_NATIVE;
 
+/**
+ * 替换方法的调用
+ * from：https://lsieun.github.io/java-asm-01/method-modify-replace-insn.html
+ */
 public class MethodReplaceInvokeVisitor extends ClassVisitor {
     private final String oldOwner;
     private final String oldMethodName;

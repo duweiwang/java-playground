@@ -11,6 +11,10 @@ import org.objectweb.asm.commons.SimpleRemapper;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 修改方法名
+ *
+ */
 public class ClassRemapperExample02 {
     public static void main(String[] args) {
         String origin_name = "sample/HelloWorld";

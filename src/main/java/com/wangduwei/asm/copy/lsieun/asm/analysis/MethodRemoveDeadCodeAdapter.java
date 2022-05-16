@@ -10,7 +10,12 @@ public class MethodRemoveDeadCodeAdapter extends MethodVisitor {
     private final String owner;
     private final MethodVisitor next;
 
-    public MethodRemoveDeadCodeAdapter(int api, String owner, int access, String name, String desc, MethodVisitor next) {
+    public MethodRemoveDeadCodeAdapter(int api,
+                                       String owner,
+                                       int access,
+                                       String name,
+                                       String desc,
+                                       MethodVisitor next) {
         super(api, new MethodNode(access, name, desc, null, null));
         this.owner = owner;
         this.next = next;
