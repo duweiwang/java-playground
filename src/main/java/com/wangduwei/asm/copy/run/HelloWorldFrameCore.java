@@ -7,6 +7,10 @@ import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.Opcodes;
 
+/**
+ * 打印方法的栈帧结构
+ *
+ */
 public class HelloWorldFrameCore {
     public static void main(String[] args) {
         String relative_path = "sample/HelloWorld.class";

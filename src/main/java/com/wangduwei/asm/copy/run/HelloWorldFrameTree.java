@@ -10,6 +10,10 @@ import org.objectweb.asm.tree.analysis.*;
 
 import java.util.List;
 
+/**
+ * 打印栈帧的结构
+ *
+ */
 public class HelloWorldFrameTree {
     public static void main(String[] args) {
         String relative_path = "sample/HelloWorld.class";

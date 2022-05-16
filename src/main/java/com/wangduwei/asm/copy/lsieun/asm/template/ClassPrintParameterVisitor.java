@@ -7,6 +7,11 @@ import org.objectweb.asm.commons.AdviceAdapter;
 
 import static org.objectweb.asm.Opcodes.*;
 
+/**
+ * 使用AdviceAdapter打印方法的参数
+ *
+ *
+ */
 public class ClassPrintParameterVisitor extends ClassVisitor {
     public ClassPrintParameterVisitor(int api, ClassVisitor classVisitor) {
         super(api, classVisitor);

@@ -12,8 +12,14 @@ public class Info {
     public final String targetDesc;
 
     public Info(
-            int srcOpcode, String srcOwner, String srcName, String srcDesc,
-            int targetOpcode, String targetOwner, String targetName, String targetDesc) {
+            int srcOpcode,
+            String srcOwner,
+            String srcName,
+            String srcDesc,
+            int targetOpcode,
+            String targetOwner,
+            String targetName,
+            String targetDesc) {
         this.srcOpcode = srcOpcode;
         this.srcOwner = srcOwner;
         this.srcName = srcName;
