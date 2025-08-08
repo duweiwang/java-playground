@@ -31,6 +31,7 @@ public class RealChain implements Chain {
             //下一个需要带给当前对象
             RealChain realChain = new RealChain(ratifyList, request, index + 1);
             proceed = ratify.deal(realChain);
+            //todo wdw 这种情况是，链上的每个对象都会处理，还有一种情况是，只要有人处理了，就不继续往下走了
         }
 
         return proceed;

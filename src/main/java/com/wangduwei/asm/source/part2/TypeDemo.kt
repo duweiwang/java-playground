@@ -1,6 +1,7 @@
 package com.wangduwei.asm.source.part2
 
-import jdk.internal.org.objectweb.asm.Type
+import org.objectweb.asm.Type
+
 
 class TypeDemo {
     fun testMethod(value: String):Int {
